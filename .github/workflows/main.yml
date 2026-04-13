@@ -1,0 +1,16 @@
+name: Docker CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Build Docker
+        run: docker build -t devops-project .
+      
+      - name: Run container
+        run: docker run devops-project
